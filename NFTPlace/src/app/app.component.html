@@ -1,0 +1,15 @@
+<input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}  
+</div>
+<button mat-mini-fab color="primary" class="upload-btn"
+      (click)="uploadFile()">
+      Upload
+</button>
+
+<div *ngFor="let image of contractService.images">
+  <p class="text-center"><img [src]="'https://ipfs.infura.io/ipfs/' + image.hash" style="width:'420px'"/></p>
+  <p>{{image.description}}</p>
+</div>
